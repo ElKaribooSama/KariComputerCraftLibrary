@@ -46,8 +46,6 @@ if link ~= "" then
         file.write(filecontent)
         file.close()
     end
-    
-    os.remove("temp/" .. GetFileName(link))
 else 
     print("Link to install.lua not found.")
     print("run the installer with the raw github link as an argument.")
