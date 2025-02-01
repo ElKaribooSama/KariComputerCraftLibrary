@@ -1,8 +1,8 @@
 -- Libraries
 
-local movement = require("lib/movement")
-local chestHandler = require("lib/chestInteraction")
-local oreNode = require("lib/oreNode")
+local movement = require("../lib/movement")
+local chestHandler = require("../lib/chestInteraction")
+local oreNode = require("../lib/oreNode")
 
 -- Setup
 
