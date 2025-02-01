@@ -303,11 +303,15 @@ function Start()
     EmptyInventoryToChest()
 end
 
+function SetupOptions(options)
+    miningY = options.miningY
+    miningDirection = options.miningDirection
+    chestDirection = options.chestDirection
+    homePosition = options.homePosition
+    tunnelIsWalkable = options.tunnelIsWalkable
+end
+
 return {
     Start = Start,
-    miningY = miningY,
-    homePosition = homePosition,
-    chestDirection = chestDirection,
-    miningDirection = miningDirection,
-    tunnelIsWalkable = tunnelIsWalkable
+    SetupOptions = SetupOptions
 }
