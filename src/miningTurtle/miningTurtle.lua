@@ -1,18 +1,19 @@
 -- Libraries
 
-local movement = require("movement")
-local chestHandler = require("chestInteraction")
-local oreNode = require("oreNode")
+local movement = require("lib/movement")
+local chestHandler = require("lib/chestInteraction")
+local oreNode = require("lib/oreNode")
 
 -- Setup
 
 local miningY = -53
+local tunnelIsWalkable = false
 local chestDirection = movement.direction.north
 local miningDirection = movement.direction.east
 local homePosition = {
-    x = -219,
-    y = 174,
-    z = 1171,
+    x = 0,
+    y = 0,
+    z = 0,
     w = 0
 }
 
@@ -248,6 +249,9 @@ function StartMiningTunnel()
                 MineOreNode(data.name)
             end
         end
+        if tunnelIsWalkable then
+            turtle.digDown()
+        end
         
         movement.LookToward(position,math.fmod(position.w + 1,4))
         local hit, data = turtle.inspect()
@@ -299,4 +303,11 @@ function Start()
     EmptyInventoryToChest()
 end
 
-Start()
+return {
+    Start = Start,
+    miningY = miningY,
+    homePosition = homePosition,
+    chestDirection = chestDirection,
+    miningDirection = miningDirection,
+    tunnelIsWalkable = tunnelIsWalkable
+}
