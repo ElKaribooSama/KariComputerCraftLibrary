@@ -5,7 +5,8 @@ local libraries = {
 }
 
 local sources = {
-    "https://raw.githubusercontent.com/ElKaribooSama/KariComputerCraftLibrary/refs/heads/main/src/miningTurtle/miningTurtle.lua"
+    "https://raw.githubusercontent.com/ElKaribooSama/KariComputerCraftLibrary/refs/heads/main/src/miningTurtle/miningTurtle.lua",
+    "https://raw.githubusercontent.com/ElKaribooSama/KariComputerCraftLibrary/refs/heads/main/src/miningTurtle/main.lua"
 }
 
 return {
