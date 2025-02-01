@@ -6,16 +6,11 @@ local oreNode = require("../lib/oreNode")
 
 -- Setup
 
-local miningY = -53
-local tunnelIsWalkable = false
-local chestDirection = movement.direction.north
-local miningDirection = movement.direction.east
-local homePosition = {
-    x = 0,
-    y = 0,
-    z = 0,
-    w = 0
-}
+local miningY = nil
+local tunnelIsWalkable = nil
+local chestDirection = nil
+local miningDirection = nil
+local homePosition = nil
 
 -- variables
 
@@ -285,7 +280,14 @@ function StartMiningTunnel()
 end
 
 function Start()
+    if miningY == nil or tunnelIsWalkable == nil or chestDirection == nil or miningDirection == nil or homePosition == nil then
+        print("You need to set the options")
+        return
+    end
+
     GetFuel()
+
+    print("Going to mining depth : " .. miningY)
 
     local destination = {
         x = 0,

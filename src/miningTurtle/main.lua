@@ -8,7 +8,7 @@ local setup = {
     homePosition = {
         x = -219,
         y = 174,
-        z = 1171,
+        z = 1171,   
         w = 0
     },
     tunnelIsWalkable = true
