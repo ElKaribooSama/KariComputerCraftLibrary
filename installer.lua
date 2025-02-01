@@ -8,17 +8,16 @@ function GetFileName(file)
 end
 
 if link ~= "" then
-    local raw = http.get(link)
-    local filecontent = raw.readAll()
-    
-    local infos = loadstring(filecontent)
-    
-    if infos == nil then
-        os.exit()
+    do
+        local raw = http.get(link)
+        local filecontent = raw.readAll()
+        
+        local file = fs.open("temp/" .. GetFileName(link), "w")
+        file.write(filecontent)
+        file.close()
     end
-    if infos.lib == nil or infos.src == nil then
-        os.exit()
-    end
+
+    local infos = require("temp/" .. GetFileName(link))
 
     for index, value in ipairs(infos.lib) do
         local raw = http.get(value)
@@ -38,3 +37,5 @@ if link ~= "" then
         file.close()
     end
 end
+
+os.remove("temp/" .. GetFileName(link))
