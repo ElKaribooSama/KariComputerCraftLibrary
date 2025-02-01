@@ -4,7 +4,7 @@ local args = {...}
 
 -- LINK TO THE RAW INSTALL.LUA --
 
-local link = args[0]
+local link = args[1]
 
 function GetFileName(file)
     local file_name = file:match("[^/]*.lua$")
