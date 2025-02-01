@@ -217,19 +217,12 @@ function StartMiningTunnel()
         w = position.w
     }
 
-    local destination = {
-        x = position.x,
-        y = position.y,
-        z = position.z,
-        w = miningDirection
-    }
-
     while not IsInventoryFull() do
         TryRefuel()
 
         local dx = (miningDirection == 1) and 1 or (miningDirection == 3) and -1 or 0
         local dz = (miningDirection == 2) and 1 or (miningDirection == 0) and -1 or 0
-        movement.GoToPos(position,{x = position.x + dx, y = position.y, z = position.x + dz, w = position.w})
+        movement.GoToPos(position,{x = position.x + dx, y = position.y, z = position.x + dz, w = miningDirection})
 
         local hit, data = turtle.inspectUp()
         if hit then
