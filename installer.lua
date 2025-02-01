@@ -1,8 +1,10 @@
 -- LINK TO THE RAW INSTALL.LUA --
 
-local link = ""
+local args = {...}
 
 -- LINK TO THE RAW INSTALL.LUA --
+
+local link = args[0]
 
 function GetFileName(file)
     local file_name = file:match("[^/]*.lua$")
@@ -47,5 +49,6 @@ if link ~= "" then
     
     os.remove("temp/" .. GetFileName(link))
 else 
-    print("Link to install.lua not found. edit the link variable with the raw github file link")
+    print("Link to install.lua not found.")
+    print("run the installer with the raw github link as an argument.")
 end
