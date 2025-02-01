@@ -13,6 +13,9 @@ if link ~= "" then
     
     local infos = loadstring(filecontent)
     
+    if infos == nil then
+        os.exit()
+    end
     if infos.lib == nil or infos.src == nil then
         os.exit()
     end
