@@ -69,9 +69,8 @@ function GoToPos(position, destination)
     local moveY = destination.y - position.y
     local moveZ = destination.z - position.z
 
-    print("moving in y : " .. moveY)
+    print("moving to " .. textutils.serialise(destination))
     while moveY ~= 0 do
-        print(moveY)
         if moveY < 0 then
             if not CanGoDown() then
                 turtle.digDown()
@@ -89,9 +88,7 @@ function GoToPos(position, destination)
         end
     end
 
-    print("moving in x : " .. moveX)
     while moveX ~= 0 do
-        print(moveX)
         if moveX < 0 then
             LookToward(position,direction.west)
             position.x = position.x - 1
@@ -109,9 +106,7 @@ function GoToPos(position, destination)
         turtle.forward()
     end
 
-    print("moving in Z : " .. moveZ)                                                                                                                        
     while moveZ ~= 0 do
-        print(moveZ)
         if moveZ < 0 then
             LookToward(position,direction.north)
             position.z = position.z - 1
