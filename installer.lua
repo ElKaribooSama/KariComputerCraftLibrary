@@ -25,6 +25,8 @@ if link ~= "" then
 
     local infos = require("temp/" .. GetFileName(link))
 
+    os.makeDir("lib")
+
     for index, value in ipairs(infos.lib) do
         print("Downloading library : " .. GetFileName(value))
 
@@ -36,6 +38,8 @@ if link ~= "" then
         file.close()
     end
     
+    os.makeDir("src")
+
     for index, value in ipairs(infos.src) do
         print("Downloading source : " .. GetFileName(value))
 
