@@ -2,12 +2,16 @@
 
 local link = ""
 
+-- LINK TO THE RAW INSTALL.LUA --
+
 function GetFileName(file)
     local file_name = file:match("[^/]*.lua$")
     return file_name:sub(0, #file_name - 4)
 end
 
 if link ~= "" then
+    print("Starting install...")
+
     do
         local raw = http.get(link)
         local filecontent = raw.readAll()
@@ -20,6 +24,8 @@ if link ~= "" then
     local infos = require("temp/" .. GetFileName(link))
 
     for index, value in ipairs(infos.lib) do
+        print("Downloading library : " .. GetFileName(value))
+
         local raw = http.get(value)
         local filecontent = raw.readAll()
     
@@ -29,6 +35,8 @@ if link ~= "" then
     end
     
     for index, value in ipairs(infos.src) do
+        print("Downloading source : " .. GetFileName(value))
+
         local raw = http.get(value)
         local filecontent = raw.readAll()
     
@@ -36,6 +44,8 @@ if link ~= "" then
         file.write(filecontent)
         file.close()
     end
+    
+    os.remove("temp/" .. GetFileName(link))
+else 
+    print("Link to install.lua not found. edit the link variable with the raw github file link")
 end
-
-os.remove("temp/" .. GetFileName(link))
